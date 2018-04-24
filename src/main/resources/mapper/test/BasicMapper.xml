@@ -1,0 +1,440 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.zjbdos.module.test.dao.BasicMapper">
+  <resultMap id="BaseResultMap" type="com.zjbdos.module.test.entity.Basic">
+    <id column="id" jdbcType="INTEGER" property="id" />
+    <result column="enterprise_name_cn" jdbcType="VARCHAR" property="enterpriseNameCn" />
+    <result column="enterprise_name_en" jdbcType="VARCHAR" property="enterpriseNameEn" />
+    <result column="legal_representative" jdbcType="VARCHAR" property="legalRepresentative" />
+    <result column="registered_capital" jdbcType="VARCHAR" property="registeredCapital" />
+    <result column="register_date" jdbcType="DATE" property="registerDate" />
+    <result column="company_type" jdbcType="VARCHAR" property="companyType" />
+    <result column="settle_time" jdbcType="VARCHAR" property="settleTime" />
+    <result column="business_address" jdbcType="VARCHAR" property="businessAddress" />
+    <result column="business_license_no" jdbcType="VARCHAR" property="businessLicenseNo" />
+    <result column="tax_no" jdbcType="VARCHAR" property="taxNo" />
+    <result column="org_code" jdbcType="VARCHAR" property="orgCode" />
+    <result column="zip_code" jdbcType="VARCHAR" property="zipCode" />
+    <result column="enterprise_tel" jdbcType="VARCHAR" property="enterpriseTel" />
+    <result column="enterprise_fax" jdbcType="VARCHAR" property="enterpriseFax" />
+    <result column="enterprise_website" jdbcType="VARCHAR" property="enterpriseWebsite" />
+    <result column="customer_relationship" jdbcType="VARCHAR" property="customerRelationship" />
+    <result column="customer_background" jdbcType="VARCHAR" property="customerBackground" />
+    <result column="registered_capital_rmb" jdbcType="VARCHAR" property="registeredCapitalRmb" />
+    <result column="registered_capital_dollar" jdbcType="VARCHAR" property="registeredCapitalDollar" />
+    <result column="total_investment" jdbcType="VARCHAR" property="totalInvestment" />
+    <result column="total_investment_currency" jdbcType="VARCHAR" property="totalInvestmentCurrency" />
+    <result column="industry_category" jdbcType="VARCHAR" property="industryCategory" />
+    <result column="industrial_block" jdbcType="VARCHAR" property="industrialBlock" />
+    <result column="investor_country" jdbcType="VARCHAR" property="investorCountry" />
+    <result column="belong_town_street" jdbcType="VARCHAR" property="belongTownStreet" />
+    <result column="company_profile" jdbcType="VARCHAR" property="companyProfile" />
+    <result column="createby" jdbcType="VARCHAR" property="createby" />
+    <result column="create_name" jdbcType="VARCHAR" property="createName" />
+    <result column="create_time" jdbcType="TIMESTAMP" property="createTime" />
+    <result column="modifyby" jdbcType="VARCHAR" property="modifyby" />
+    <result column="modify_name" jdbcType="VARCHAR" property="modifyName" />
+    <result column="modify_time" jdbcType="TIMESTAMP" property="modifyTime" />
+    <result column="is_delete" jdbcType="BIT" property="isDelete" />
+  </resultMap>
+  <sql id="Base_Column_List">
+    id, enterprise_name_cn, enterprise_name_en, legal_representative, registered_capital, 
+    register_date, company_type, settle_time, business_address, business_license_no, 
+    tax_no, org_code, zip_code, enterprise_tel, enterprise_fax, enterprise_website, customer_relationship, 
+    customer_background, registered_capital_rmb, registered_capital_dollar, total_investment, 
+    total_investment_currency, industry_category, industrial_block, investor_country, 
+    belong_town_street, company_profile, createby, create_name, create_time, modifyby, 
+    modify_name, modify_time, is_delete
+  </sql>
+  <select id="selectByPrimaryKey" parameterType="java.lang.Integer" resultMap="BaseResultMap">
+    select 
+    <include refid="Base_Column_List" />
+    from portal_enterprise_basic
+    where id = #{id,jdbcType=INTEGER}
+  </select>
+  <delete id="deleteByPrimaryKey" parameterType="java.lang.Integer">
+    delete from portal_enterprise_basic
+    where id = #{id,jdbcType=INTEGER}
+  </delete>
+  <insert id="insert" parameterType="com.zjbdos.module.test.entity.Basic">
+    insert into portal_enterprise_basic (id, enterprise_name_cn, enterprise_name_en, 
+      legal_representative, registered_capital, 
+      register_date, company_type, settle_time, 
+      business_address, business_license_no, tax_no, 
+      org_code, zip_code, enterprise_tel, 
+      enterprise_fax, enterprise_website, customer_relationship, 
+      customer_background, registered_capital_rmb, 
+      registered_capital_dollar, total_investment, 
+      total_investment_currency, industry_category, 
+      industrial_block, investor_country, belong_town_street, 
+      company_profile, createby, create_name, 
+      create_time, modifyby, modify_name, 
+      modify_time, is_delete)
+    values (#{id,jdbcType=INTEGER}, #{enterpriseNameCn,jdbcType=VARCHAR}, #{enterpriseNameEn,jdbcType=VARCHAR}, 
+      #{legalRepresentative,jdbcType=VARCHAR}, #{registeredCapital,jdbcType=VARCHAR}, 
+      #{registerDate,jdbcType=DATE}, #{companyType,jdbcType=VARCHAR}, #{settleTime,jdbcType=VARCHAR}, 
+      #{businessAddress,jdbcType=VARCHAR}, #{businessLicenseNo,jdbcType=VARCHAR}, #{taxNo,jdbcType=VARCHAR}, 
+      #{orgCode,jdbcType=VARCHAR}, #{zipCode,jdbcType=VARCHAR}, #{enterpriseTel,jdbcType=VARCHAR}, 
+      #{enterpriseFax,jdbcType=VARCHAR}, #{enterpriseWebsite,jdbcType=VARCHAR}, #{customerRelationship,jdbcType=VARCHAR}, 
+      #{customerBackground,jdbcType=VARCHAR}, #{registeredCapitalRmb,jdbcType=VARCHAR}, 
+      #{registeredCapitalDollar,jdbcType=VARCHAR}, #{totalInvestment,jdbcType=VARCHAR}, 
+      #{totalInvestmentCurrency,jdbcType=VARCHAR}, #{industryCategory,jdbcType=VARCHAR}, 
+      #{industrialBlock,jdbcType=VARCHAR}, #{investorCountry,jdbcType=VARCHAR}, #{belongTownStreet,jdbcType=VARCHAR}, 
+      #{companyProfile,jdbcType=VARCHAR}, #{createby,jdbcType=VARCHAR}, #{createName,jdbcType=VARCHAR}, 
+      #{createTime,jdbcType=TIMESTAMP}, #{modifyby,jdbcType=VARCHAR}, #{modifyName,jdbcType=VARCHAR}, 
+      #{modifyTime,jdbcType=TIMESTAMP}, #{isDelete,jdbcType=BIT})
+  </insert>
+  <insert id="insertSelective" parameterType="com.zjbdos.module.test.entity.Basic">
+    insert into portal_enterprise_basic
+    <trim prefix="(" suffix=")" suffixOverrides=",">
+      <if test="id != null">
+        id,
+      </if>
+      <if test="enterpriseNameCn != null">
+        enterprise_name_cn,
+      </if>
+      <if test="enterpriseNameEn != null">
+        enterprise_name_en,
+      </if>
+      <if test="legalRepresentative != null">
+        legal_representative,
+      </if>
+      <if test="registeredCapital != null">
+        registered_capital,
+      </if>
+      <if test="registerDate != null">
+        register_date,
+      </if>
+      <if test="companyType != null">
+        company_type,
+      </if>
+      <if test="settleTime != null">
+        settle_time,
+      </if>
+      <if test="businessAddress != null">
+        business_address,
+      </if>
+      <if test="businessLicenseNo != null">
+        business_license_no,
+      </if>
+      <if test="taxNo != null">
+        tax_no,
+      </if>
+      <if test="orgCode != null">
+        org_code,
+      </if>
+      <if test="zipCode != null">
+        zip_code,
+      </if>
+      <if test="enterpriseTel != null">
+        enterprise_tel,
+      </if>
+      <if test="enterpriseFax != null">
+        enterprise_fax,
+      </if>
+      <if test="enterpriseWebsite != null">
+        enterprise_website,
+      </if>
+      <if test="customerRelationship != null">
+        customer_relationship,
+      </if>
+      <if test="customerBackground != null">
+        customer_background,
+      </if>
+      <if test="registeredCapitalRmb != null">
+        registered_capital_rmb,
+      </if>
+      <if test="registeredCapitalDollar != null">
+        registered_capital_dollar,
+      </if>
+      <if test="totalInvestment != null">
+        total_investment,
+      </if>
+      <if test="totalInvestmentCurrency != null">
+        total_investment_currency,
+      </if>
+      <if test="industryCategory != null">
+        industry_category,
+      </if>
+      <if test="industrialBlock != null">
+        industrial_block,
+      </if>
+      <if test="investorCountry != null">
+        investor_country,
+      </if>
+      <if test="belongTownStreet != null">
+        belong_town_street,
+      </if>
+      <if test="companyProfile != null">
+        company_profile,
+      </if>
+      <if test="createby != null">
+        createby,
+      </if>
+      <if test="createName != null">
+        create_name,
+      </if>
+      <if test="createTime != null">
+        create_time,
+      </if>
+      <if test="modifyby != null">
+        modifyby,
+      </if>
+      <if test="modifyName != null">
+        modify_name,
+      </if>
+      <if test="modifyTime != null">
+        modify_time,
+      </if>
+      <if test="isDelete != null">
+        is_delete,
+      </if>
+    </trim>
+    <trim prefix="values (" suffix=")" suffixOverrides=",">
+      <if test="id != null">
+        #{id,jdbcType=INTEGER},
+      </if>
+      <if test="enterpriseNameCn != null">
+        #{enterpriseNameCn,jdbcType=VARCHAR},
+      </if>
+      <if test="enterpriseNameEn != null">
+        #{enterpriseNameEn,jdbcType=VARCHAR},
+      </if>
+      <if test="legalRepresentative != null">
+        #{legalRepresentative,jdbcType=VARCHAR},
+      </if>
+      <if test="registeredCapital != null">
+        #{registeredCapital,jdbcType=VARCHAR},
+      </if>
+      <if test="registerDate != null">
+        #{registerDate,jdbcType=DATE},
+      </if>
+      <if test="companyType != null">
+        #{companyType,jdbcType=VARCHAR},
+      </if>
+      <if test="settleTime != null">
+        #{settleTime,jdbcType=VARCHAR},
+      </if>
+      <if test="businessAddress != null">
+        #{businessAddress,jdbcType=VARCHAR},
+      </if>
+      <if test="businessLicenseNo != null">
+        #{businessLicenseNo,jdbcType=VARCHAR},
+      </if>
+      <if test="taxNo != null">
+        #{taxNo,jdbcType=VARCHAR},
+      </if>
+      <if test="orgCode != null">
+        #{orgCode,jdbcType=VARCHAR},
+      </if>
+      <if test="zipCode != null">
+        #{zipCode,jdbcType=VARCHAR},
+      </if>
+      <if test="enterpriseTel != null">
+        #{enterpriseTel,jdbcType=VARCHAR},
+      </if>
+      <if test="enterpriseFax != null">
+        #{enterpriseFax,jdbcType=VARCHAR},
+      </if>
+      <if test="enterpriseWebsite != null">
+        #{enterpriseWebsite,jdbcType=VARCHAR},
+      </if>
+      <if test="customerRelationship != null">
+        #{customerRelationship,jdbcType=VARCHAR},
+      </if>
+      <if test="customerBackground != null">
+        #{customerBackground,jdbcType=VARCHAR},
+      </if>
+      <if test="registeredCapitalRmb != null">
+        #{registeredCapitalRmb,jdbcType=VARCHAR},
+      </if>
+      <if test="registeredCapitalDollar != null">
+        #{registeredCapitalDollar,jdbcType=VARCHAR},
+      </if>
+      <if test="totalInvestment != null">
+        #{totalInvestment,jdbcType=VARCHAR},
+      </if>
+      <if test="totalInvestmentCurrency != null">
+        #{totalInvestmentCurrency,jdbcType=VARCHAR},
+      </if>
+      <if test="industryCategory != null">
+        #{industryCategory,jdbcType=VARCHAR},
+      </if>
+      <if test="industrialBlock != null">
+        #{industrialBlock,jdbcType=VARCHAR},
+      </if>
+      <if test="investorCountry != null">
+        #{investorCountry,jdbcType=VARCHAR},
+      </if>
+      <if test="belongTownStreet != null">
+        #{belongTownStreet,jdbcType=VARCHAR},
+      </if>
+      <if test="companyProfile != null">
+        #{companyProfile,jdbcType=VARCHAR},
+      </if>
+      <if test="createby != null">
+        #{createby,jdbcType=VARCHAR},
+      </if>
+      <if test="createName != null">
+        #{createName,jdbcType=VARCHAR},
+      </if>
+      <if test="createTime != null">
+        #{createTime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="modifyby != null">
+        #{modifyby,jdbcType=VARCHAR},
+      </if>
+      <if test="modifyName != null">
+        #{modifyName,jdbcType=VARCHAR},
+      </if>
+      <if test="modifyTime != null">
+        #{modifyTime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="isDelete != null">
+        #{isDelete,jdbcType=BIT},
+      </if>
+    </trim>
+  </insert>
+  <update id="updateByPrimaryKeySelective" parameterType="com.zjbdos.module.test.entity.Basic">
+    update portal_enterprise_basic
+    <set>
+      <if test="enterpriseNameCn != null">
+        enterprise_name_cn = #{enterpriseNameCn,jdbcType=VARCHAR},
+      </if>
+      <if test="enterpriseNameEn != null">
+        enterprise_name_en = #{enterpriseNameEn,jdbcType=VARCHAR},
+      </if>
+      <if test="legalRepresentative != null">
+        legal_representative = #{legalRepresentative,jdbcType=VARCHAR},
+      </if>
+      <if test="registeredCapital != null">
+        registered_capital = #{registeredCapital,jdbcType=VARCHAR},
+      </if>
+      <if test="registerDate != null">
+        register_date = #{registerDate,jdbcType=DATE},
+      </if>
+      <if test="companyType != null">
+        company_type = #{companyType,jdbcType=VARCHAR},
+      </if>
+      <if test="settleTime != null">
+        settle_time = #{settleTime,jdbcType=VARCHAR},
+      </if>
+      <if test="businessAddress != null">
+        business_address = #{businessAddress,jdbcType=VARCHAR},
+      </if>
+      <if test="businessLicenseNo != null">
+        business_license_no = #{businessLicenseNo,jdbcType=VARCHAR},
+      </if>
+      <if test="taxNo != null">
+        tax_no = #{taxNo,jdbcType=VARCHAR},
+      </if>
+      <if test="orgCode != null">
+        org_code = #{orgCode,jdbcType=VARCHAR},
+      </if>
+      <if test="zipCode != null">
+        zip_code = #{zipCode,jdbcType=VARCHAR},
+      </if>
+      <if test="enterpriseTel != null">
+        enterprise_tel = #{enterpriseTel,jdbcType=VARCHAR},
+      </if>
+      <if test="enterpriseFax != null">
+        enterprise_fax = #{enterpriseFax,jdbcType=VARCHAR},
+      </if>
+      <if test="enterpriseWebsite != null">
+        enterprise_website = #{enterpriseWebsite,jdbcType=VARCHAR},
+      </if>
+      <if test="customerRelationship != null">
+        customer_relationship = #{customerRelationship,jdbcType=VARCHAR},
+      </if>
+      <if test="customerBackground != null">
+        customer_background = #{customerBackground,jdbcType=VARCHAR},
+      </if>
+      <if test="registeredCapitalRmb != null">
+        registered_capital_rmb = #{registeredCapitalRmb,jdbcType=VARCHAR},
+      </if>
+      <if test="registeredCapitalDollar != null">
+        registered_capital_dollar = #{registeredCapitalDollar,jdbcType=VARCHAR},
+      </if>
+      <if test="totalInvestment != null">
+        total_investment = #{totalInvestment,jdbcType=VARCHAR},
+      </if>
+      <if test="totalInvestmentCurrency != null">
+        total_investment_currency = #{totalInvestmentCurrency,jdbcType=VARCHAR},
+      </if>
+      <if test="industryCategory != null">
+        industry_category = #{industryCategory,jdbcType=VARCHAR},
+      </if>
+      <if test="industrialBlock != null">
+        industrial_block = #{industrialBlock,jdbcType=VARCHAR},
+      </if>
+      <if test="investorCountry != null">
+        investor_country = #{investorCountry,jdbcType=VARCHAR},
+      </if>
+      <if test="belongTownStreet != null">
+        belong_town_street = #{belongTownStreet,jdbcType=VARCHAR},
+      </if>
+      <if test="companyProfile != null">
+        company_profile = #{companyProfile,jdbcType=VARCHAR},
+      </if>
+      <if test="createby != null">
+        createby = #{createby,jdbcType=VARCHAR},
+      </if>
+      <if test="createName != null">
+        create_name = #{createName,jdbcType=VARCHAR},
+      </if>
+      <if test="createTime != null">
+        create_time = #{createTime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="modifyby != null">
+        modifyby = #{modifyby,jdbcType=VARCHAR},
+      </if>
+      <if test="modifyName != null">
+        modify_name = #{modifyName,jdbcType=VARCHAR},
+      </if>
+      <if test="modifyTime != null">
+        modify_time = #{modifyTime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="isDelete != null">
+        is_delete = #{isDelete,jdbcType=BIT},
+      </if>
+    </set>
+    where id = #{id,jdbcType=INTEGER}
+  </update>
+  <update id="updateByPrimaryKey" parameterType="com.zjbdos.module.test.entity.Basic">
+    update portal_enterprise_basic
+    set enterprise_name_cn = #{enterpriseNameCn,jdbcType=VARCHAR},
+      enterprise_name_en = #{enterpriseNameEn,jdbcType=VARCHAR},
+      legal_representative = #{legalRepresentative,jdbcType=VARCHAR},
+      registered_capital = #{registeredCapital,jdbcType=VARCHAR},
+      register_date = #{registerDate,jdbcType=DATE},
+      company_type = #{companyType,jdbcType=VARCHAR},
+      settle_time = #{settleTime,jdbcType=VARCHAR},
+      business_address = #{businessAddress,jdbcType=VARCHAR},
+      business_license_no = #{businessLicenseNo,jdbcType=VARCHAR},
+      tax_no = #{taxNo,jdbcType=VARCHAR},
+      org_code = #{orgCode,jdbcType=VARCHAR},
+      zip_code = #{zipCode,jdbcType=VARCHAR},
+      enterprise_tel = #{enterpriseTel,jdbcType=VARCHAR},
+      enterprise_fax = #{enterpriseFax,jdbcType=VARCHAR},
+      enterprise_website = #{enterpriseWebsite,jdbcType=VARCHAR},
+      customer_relationship = #{customerRelationship,jdbcType=VARCHAR},
+      customer_background = #{customerBackground,jdbcType=VARCHAR},
+      registered_capital_rmb = #{registeredCapitalRmb,jdbcType=VARCHAR},
+      registered_capital_dollar = #{registeredCapitalDollar,jdbcType=VARCHAR},
+      total_investment = #{totalInvestment,jdbcType=VARCHAR},
+      total_investment_currency = #{totalInvestmentCurrency,jdbcType=VARCHAR},
+      industry_category = #{industryCategory,jdbcType=VARCHAR},
+      industrial_block = #{industrialBlock,jdbcType=VARCHAR},
+      investor_country = #{investorCountry,jdbcType=VARCHAR},
+      belong_town_street = #{belongTownStreet,jdbcType=VARCHAR},
+      company_profile = #{companyProfile,jdbcType=VARCHAR},
+      createby = #{createby,jdbcType=VARCHAR},
+      create_name = #{createName,jdbcType=VARCHAR},
+      create_time = #{createTime,jdbcType=TIMESTAMP},
+      modifyby = #{modifyby,jdbcType=VARCHAR},
+      modify_name = #{modifyName,jdbcType=VARCHAR},
+      modify_time = #{modifyTime,jdbcType=TIMESTAMP},
+      is_delete = #{isDelete,jdbcType=BIT}
+    where id = #{id,jdbcType=INTEGER}
+  </update>
+</mapper>

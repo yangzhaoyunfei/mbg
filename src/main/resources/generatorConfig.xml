@@ -1,0 +1,62 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE generatorConfiguration
+        PUBLIC "-//mybatis.org//DTD MyBatis Generator Configuration 1.0//EN"
+        "http://mybatis.org/dtd/mybatis-generator-config_1_0.dtd">
+
+<generatorConfiguration>
+
+    <!-- 配置mysql 驱动jar包路径.用了绝对路径 -->
+    <classPathEntry
+            location="C:\Users\yangzhaoyunfei\.m2\repository\mysql\mysql-connector-java\5.1.46\mysql-connector-java-5.1.46.jar"/>
+
+    <context id="DB2Tables" targetRuntime="MyBatis3">
+
+        <!-- 为了防止生成的代码中有很多注释，比较难看，加入下面的配置控制 -->
+        <commentGenerator>
+            <property name="suppressAllComments" value="true"/>
+            <property name="suppressDate" value="true"/>
+        </commentGenerator>
+        <!-- 注释控制完毕 -->
+
+
+        <!-- 数据库连接 -->
+        <jdbcConnection driverClass="com.mysql.jdbc.Driver"
+                        connectionURL="jdbc:mysql://183.131.202.162:3306/kcy"
+                        userId="root"
+                        password="Huawei!123">
+        </jdbcConnection>
+
+
+        <javaTypeResolver>
+            <property name="forceBigDecimals" value="false"/>
+        </javaTypeResolver>
+
+
+        <!-- 数据表对应的model层,在这里修改包路径 -->
+        <javaModelGenerator targetPackage="com.zjbdos.module.test.entity"
+                            targetProject="D:\IdeaProjects\mbg\src\main\java">
+            <property name="enableSubPackages" value="true"/>
+            <property name="trimStrings" value="true"/>
+        </javaModelGenerator>
+
+
+        <!-- sql mapper 映射配置文件,在这里修改包路径 -->
+        <sqlMapGenerator targetPackage="test" targetProject="D:\IdeaProjects\mbg\src\main\resources\mapper">
+            <property name="enableSubPackages" value="true"/>
+        </sqlMapGenerator>
+
+        <!-- mybatis3中的mapper接口,在这里修改包路径 -->
+        <javaClientGenerator type="XMLMAPPER" targetPackage="com.zjbdos.module.test.dao"
+                             targetProject="D:\IdeaProjects\mbg\src\main\java">
+            <property name="enableSubPackages" value="true"/>
+        </javaClientGenerator>
+
+        <!-- 数据表进行生成操作 schema:相当于库名; tableName:表名; domainObjectName:对应的DO -->
+        <table schema="kcy" tableName="portal_enterprise_basic" domainObjectName="Basic" enableCountByExample="false"
+               enableUpdateByExample="false"
+               enableDeleteByExample="false" enableSelectByExample="false"
+               selectByExampleQueryId="false">
+        </table>
+
+    </context>
+</generatorConfiguration>
