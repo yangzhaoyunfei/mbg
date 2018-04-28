@@ -1,1 +1,1 @@
-# mbg
+# mybatis generator maven plugin

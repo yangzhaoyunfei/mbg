@@ -7,7 +7,7 @@
 
     <!-- 配置mysql 驱动jar包路径.用了绝对路径 -->
     <classPathEntry
-            location="C:\Users\yangzhaoyunfei\.m2\repository\mysql\mysql-connector-java\5.1.46\mysql-connector-java-5.1.46.jar"/>
+            location="C:\Users\selfimpr\.m2\repository\mysql\mysql-connector-java\5.1.46\mysql-connector-java-5.1.46.jar"/>
 
     <context id="DB2Tables" targetRuntime="MyBatis3">
 
@@ -31,32 +31,48 @@
             <property name="forceBigDecimals" value="false"/>
         </javaTypeResolver>
 
-
+        <!--####################################################################################################-->
         <!-- 数据表对应的model层,在这里修改包路径 -->
-        <javaModelGenerator targetPackage="com.zjbdos.module.test.entity"
-                            targetProject="D:\IdeaProjects\mbg\src\main\java">
+        <javaModelGenerator targetPackage="com.zjbdos.pms.meter.entity"
+                            targetProject="G:\IdeaProjects\mutilple-module-kcy\pms\src\main\java">
             <property name="enableSubPackages" value="true"/>
             <property name="trimStrings" value="true"/>
         </javaModelGenerator>
 
 
         <!-- sql mapper 映射配置文件,在这里修改包路径 -->
-        <sqlMapGenerator targetPackage="test" targetProject="D:\IdeaProjects\mbg\src\main\resources\mapper">
+        <sqlMapGenerator targetPackage="meter"
+                         targetProject="G:\IdeaProjects\mutilple-module-kcy\pms\src\main\resources\Mapper">
             <property name="enableSubPackages" value="true"/>
         </sqlMapGenerator>
 
-        <!-- mybatis3中的mapper接口,在这里修改包路径 -->
-        <javaClientGenerator type="XMLMAPPER" targetPackage="com.zjbdos.module.test.dao"
-                             targetProject="D:\IdeaProjects\mbg\src\main\java">
+        <!-- mybatis3中的mapper(dao)接口,在这里修改包路径 -->
+        <javaClientGenerator type="XMLMAPPER" targetPackage="com.zjbdos.pms.meter.dao"
+                             targetProject="G:\IdeaProjects\mutilple-module-kcy\pms\src\main\java">
             <property name="enableSubPackages" value="true"/>
         </javaClientGenerator>
 
+        <!--####################################################################################################-->
+
         <!-- 数据表进行生成操作 schema:相当于库名; tableName:表名; domainObjectName:对应的DO -->
-        <table schema="kcy" tableName="portal_enterprise_basic" domainObjectName="Basic" enableCountByExample="false"
+        <table schema="kcy" tableName="pms_meter_reading" domainObjectName="Reading" enableCountByExample="false"
                enableUpdateByExample="false"
                enableDeleteByExample="false" enableSelectByExample="false"
                selectByExampleQueryId="false">
         </table>
 
+        <!--另一个table-->
+        <!-- <table schema="kcy" tableName="pms_fee_scale" domainObjectName="scale" enableCountByExample="false"
+                enableUpdateByExample="false"
+                enableDeleteByExample="false" enableSelectByExample="false"
+                selectByExampleQueryId="false">
+         </table>-->
+
+        <!--另一个table-->
+        <!--<table schema="kcy" tableName="pms_fee_scale" domainObjectName="scale" enableCountByExample="false"
+               enableUpdateByExample="false"
+               enableDeleteByExample="false" enableSelectByExample="false"
+               selectByExampleQueryId="false">
+        </table>-->
     </context>
 </generatorConfiguration>
