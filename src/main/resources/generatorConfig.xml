@@ -32,37 +32,37 @@
         </javaTypeResolver>
 
         <!--####################################################################################################-->
-        <!-- 数据表对应的model层,在这里修改包路径 -->
-        <javaModelGenerator targetPackage="com.zjbdos.pms.meter.entity"
-                            targetProject="G:\IdeaProjects\mutilple-module-kcy\pms\src\main\java">
+        <!-- 数据表对应的model层,项目路径对应到main/java,包路径从com开始 -->
+        <javaModelGenerator targetPackage="com.wb.portal.report.entity"
+                            targetProject="G:\IdeaProjects\mutilple-module-kcy\portal-server\src\main\java">
             <property name="enableSubPackages" value="true"/>
             <property name="trimStrings" value="true"/>
         </javaModelGenerator>
 
 
-        <!-- sql mapper 映射配置文件,在这里修改包路径 -->
-        <sqlMapGenerator targetPackage="meter"
-                         targetProject="G:\IdeaProjects\mutilple-module-kcy\pms\src\main\resources\Mapper">
+        <!-- sql mapper.xml 映射配置文件,在这里修改包路径 -->
+        <sqlMapGenerator targetPackage="mapper.report"
+                         targetProject="G:\IdeaProjects\mutilple-module-kcy\portal-server\src\main\resources\">
             <property name="enableSubPackages" value="true"/>
         </sqlMapGenerator>
 
-        <!-- mybatis3中的mapper(dao)接口,在这里修改包路径 -->
-        <javaClientGenerator type="XMLMAPPER" targetPackage="com.zjbdos.pms.meter.dao"
-                             targetProject="G:\IdeaProjects\mutilple-module-kcy\pms\src\main\java">
+        <!-- mybatis3中的mapper(dao)接口,项目路径对应到main/java,包路径从com开始 -->
+        <javaClientGenerator type="XMLMAPPER" targetPackage="com.wb.portal.report.dao"
+                             targetProject="G:\IdeaProjects\mutilple-module-kcy\portal-server\src\main\java">
             <property name="enableSubPackages" value="true"/>
         </javaClientGenerator>
 
         <!--####################################################################################################-->
 
         <!-- 数据表进行生成操作 schema:相当于库名; tableName:表名; domainObjectName:对应的DO -->
-        <table schema="kcy" tableName="pms_meter_reading" domainObjectName="Reading" enableCountByExample="false"
+        <table schema="kcy" tableName="protal_data_report" domainObjectName="Report" enableCountByExample="false"
                enableUpdateByExample="false"
                enableDeleteByExample="false" enableSelectByExample="false"
                selectByExampleQueryId="false">
         </table>
 
         <!--另一个table-->
-        <!-- <table schema="kcy" tableName="pms_fee_scale" domainObjectName="scale" enableCountByExample="false"
+        <!-- <table schema="kcy" tableName="portal_enterprise_apply" domainObjectName="Apply" enableCountByExample="false"
                 enableUpdateByExample="false"
                 enableDeleteByExample="false" enableSelectByExample="false"
                 selectByExampleQueryId="false">
