@@ -31,31 +31,32 @@
             <property name="forceBigDecimals" value="false"/>
         </javaTypeResolver>
 
-        <!--####################################################################################################-->
+        <!-- ###########################################  生成文件的位置  ######################################## -->
+
         <!-- 数据表对应的model层,项目路径对应到main/java,包路径从com开始 -->
-        <javaModelGenerator targetPackage="com.wb.portal.report.entity"
-                            targetProject="G:\IdeaProjects\mutilple-module-kcy\portal-server\src\main\java">
+        <javaModelGenerator targetPackage="com.zjbdos.entity"
+                            targetProject="G:\IdeaProjects\mutilple-module-kcy\auth\src\main\java">
             <property name="enableSubPackages" value="true"/>
             <property name="trimStrings" value="true"/>
         </javaModelGenerator>
 
 
-        <!-- sql mapper.xml 映射配置文件,在这里修改包路径 -->
-        <sqlMapGenerator targetPackage="mapper.report"
-                         targetProject="G:\IdeaProjects\mutilple-module-kcy\portal-server\src\main\resources\">
+        <!-- sql mapper.xml 映射配置文件,项目路径对应到\src\main\resources\的绝对路径,包路径对应到mapper.xxx或其他 -->
+        <sqlMapGenerator targetPackage="authMapper"
+                         targetProject="G:\IdeaProjects\mutilple-module-kcy\auth\src\main\resources">
             <property name="enableSubPackages" value="true"/>
         </sqlMapGenerator>
 
         <!-- mybatis3中的mapper(dao)接口,项目路径对应到main/java,包路径从com开始 -->
-        <javaClientGenerator type="XMLMAPPER" targetPackage="com.wb.portal.report.dao"
-                             targetProject="G:\IdeaProjects\mutilple-module-kcy\portal-server\src\main\java">
+        <javaClientGenerator type="XMLMAPPER" targetPackage="com.zjbdos.basic.syslogin.dao"
+                             targetProject="G:\IdeaProjects\mutilple-module-kcy\auth\src\main\java">
             <property name="enableSubPackages" value="true"/>
         </javaClientGenerator>
 
-        <!--####################################################################################################-->
+        <!-- #########################################  要生成的表  ############################################## -->
 
         <!-- 数据表进行生成操作 schema:相当于库名; tableName:表名; domainObjectName:对应的DO -->
-        <table schema="kcy" tableName="protal_data_report" domainObjectName="Report" enableCountByExample="false"
+        <table schema="kcy" tableName="system_login" domainObjectName="SystemLogin" enableCountByExample="false"
                enableUpdateByExample="false"
                enableDeleteByExample="false" enableSelectByExample="false"
                selectByExampleQueryId="false">
